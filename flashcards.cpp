@@ -10,7 +10,7 @@ const int MAX_CARDS = 50;
 
 
 // first class
-class flashcard {
+class Flashcard {
 public:
     char question[150];
     char answer[150];
