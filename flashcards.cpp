@@ -7,6 +7,7 @@ using namespace std;
 
 const int MAX_CARDS = 50;
 
+
 // first class
 class flashcard {
 public:
@@ -40,6 +41,7 @@ public:
         }
         cout << "-----------------------------\n";
     }};
+
 
 // second class
 class FlashcardManager {
@@ -138,7 +140,8 @@ public:
         file.close();
     }};
 
-// Class 3: User
+
+// Third class
 class User {
 private:
     string name;
@@ -157,6 +160,39 @@ public:
         cout << "\"Education is the passport to the future, for tomorrow belongs to those who prepare for it today.\"\n";
     }};
 
+
+// Fourth class
+class Helper {
+public:
+    static void calculator() {
+        system("cls");
+        cout << "\n========= Mini Calculator =========\n\n";
+        double num1, num2;
+        char op;
+
+        cout << "Enter first number: ";
+        cin >> num1;
+        cout << "Enter operator (+, -, *, /): ";
+        cin >> op;
+        cout << "Enter second number: ";
+        cin >> num2;
+
+        switch (op) {
+            case '+': cout << "Result: " << num1 + num2 << endl; break;
+            case '-': cout << "Result: " << num1 - num2 << endl; break;
+            case '*': cout << "Result: " << num1 * num2 << endl; break;
+            case '/':
+                if (num2 != 0)
+                    cout << "Result: " << num1 / num2 << endl;
+                else
+                    cout << "Cannot divide by zero." << endl;
+                break;
+            default:
+                cout << "Invalid operator." << endl;
+        }
+        cout << "===================================\n";
+    }
+};
 
 int main() {
 return 0;}
