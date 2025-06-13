@@ -6,14 +6,14 @@
 
 using namespace std;
 
-const int MAX_CARDS = 50;
+const int MAX_CARDS = 100;
 
 
 // first class
 class Flashcard {
 public:
-    char question[150];
-    char answer[150];
+    char question[250];
+    char answer[250];
     int score;
 
     Flashcard() : score(0) {
