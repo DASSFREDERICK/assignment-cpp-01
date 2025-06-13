@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h> // For system("CLS") as per example
+#include <cstring>
 #include <string>
 
 using namespace std;
@@ -277,8 +278,11 @@ public:
                     cout << "\nInvalid choice.\n";
             }
         } while (choice != 7);
-    }
-};
+    }};
 
 int main() {
-return 0;}
+    App app;
+    app.run();
+    return 0;
+}
+
