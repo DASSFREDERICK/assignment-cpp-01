@@ -194,5 +194,91 @@ public:
     }
 };
 
+
+// Fifth class
+class App {
+private:
+    FlashcardManager fm;
+    User user;
+
+public:
+    void run() {
+        system("cls");
+        cout << "===============================\n";
+        cout << "Enter your name: ";
+        string uname;
+        getline(cin, uname);
+        user.setName(uname);
+
+        user.greet();
+        cout << "===============================\n\n";
+
+        fm.loadFromFile("flashcards.dat");
+
+        int choice;
+        do {
+            cout << "\n========= Flashcard Generator =========\n";
+            cout << "1. Add Flashcard\n";
+            cout << "2. Remove Flashcard\n";
+            cout << "3. Review Flashcards\n";
+            cout << "4. View Progress\n";
+            cout << "5. Credits\n";
+            cout << "6. Mini Calculator\n";
+            cout << "7. Save and Exit\n";
+            cout << "=======================================\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+            cin.ignore();
+
+            switch (choice) {
+                case 1: {
+                    system("cls");
+                    string q, a;
+                    cout << "\n========= Add Flashcard =========\n";
+                    cout << "Enter Question: ";
+                    getline(cin, q);
+                    cout << "Enter Answer: ";
+                    getline(cin, a);
+                    fm.addFlashcard(q, a);
+                    cout << "=================================\n";
+                    break;
+                }
+                case 2:
+                    system("cls");
+                    fm.removeFlashcard();
+                    fm.saveToFile("flashcards.dat");
+                    break;
+                case 3:
+                    fm.reviewFlashcards();
+                    fm.saveToFile("flashcards.dat");
+                    break;
+                case 4:
+                    fm.viewProgress();
+                    break;
+                case 5:
+                    system("cls");
+                    cout << "\n========= Credits =========\n";
+                    cout << "This is a successful flashcard generating program\n";
+                    cout << "created by 2 brilliant MMU students:\n";
+                    cout << "1211109968 Frederick\n";
+                    cout << "1211109445\n";
+                    cout << "For Object Oriented C++ subject assignment\n";
+                    cout << "given by Mr. Mohd Haris Lye.\n";
+                    cout << "===========================\n";
+                    break;
+                case 6:
+                    Helper::calculator();
+                    break;
+                case 7:
+                    fm.saveToFile("flashcards.dat");
+                    cout << "\nGoodbye, " << user.getName() << "!\n";
+                    break;
+                default:
+                    cout << "\nInvalid choice.\n";
+            }
+        } while (choice != 7);
+    }
+};
+
 int main() {
 return 0;}
